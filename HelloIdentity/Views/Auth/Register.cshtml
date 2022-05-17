@@ -1,0 +1,13 @@
+﻿@using HelloIdentity.Identity.Models
+@model SignUpModel
+
+<form asp-action="Register">
+    <input asp-for="UserName" />
+    <span asp-validation-for="UserName"></span>
+    <input type="email" asp-for="Email" />
+    <span asp-validation-for="Email"></span>
+    <input type="text" asp-for="Password" />
+    <span asp-validation-for="Password"></span>
+
+    <button>Create new user</button>
+</form>

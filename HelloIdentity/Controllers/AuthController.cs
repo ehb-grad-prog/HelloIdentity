@@ -55,4 +55,28 @@ public class AuthController : Controller
 
         return Redirect("/");
     }
+
+    public IActionResult Register() => View();
+
+    [HttpPost, AutoValidateAntiforgeryToken]
+    public async Task<IActionResult> Register(SignUpModel model)
+    {
+        if (ModelState.IsValid is false)
+        {
+            return View(model);
+        }
+
+        var result = await UserManager.CreateAsync(new User
+        {
+            UserName = model.UserName,
+            Email = model.Email
+        }, model.Password);
+
+        if (result.Succeeded)
+        {
+            return RedirectToAction(nameof(Login));
+        }
+
+        return View(model);
+    }
 }

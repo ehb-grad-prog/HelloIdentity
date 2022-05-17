@@ -1,9 +1,7 @@
-﻿namespace HelloIdentity.Identity.Entities;
+﻿using Microsoft.AspNetCore.Identity;
 
-public class User
+namespace HelloIdentity.Identity.Entities;
+
+public class User : IdentityUser<long>
 {
-    public long Id { get; set; }
-    public string UserName { get; set; }
-    public string NormalizedUsername { get; set; }
-    public string Password { get; set; }
 }

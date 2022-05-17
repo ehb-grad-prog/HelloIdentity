@@ -1,6 +1,6 @@
 using HelloIdentity.Data;
 using HelloIdentity.Identity.Entities;
-using HelloIdentity.Identity.Stores;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,8 +15,7 @@ builder.Services.AddDbContext<HelloIdentityContext>(options =>
 });
 
 builder.Services.AddIdentity<User, Role>()
-    .AddUserStore<UserStore>()
-    .AddRoleStore<RoleStore>();
+    .AddEntityFrameworkStores<HelloIdentityContext>();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {

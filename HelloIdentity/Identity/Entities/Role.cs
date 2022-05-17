@@ -1,8 +1,7 @@
-﻿namespace HelloIdentity.Identity.Entities;
+﻿using Microsoft.AspNetCore.Identity;
 
-public class Role
+namespace HelloIdentity.Identity.Entities;
+
+public class Role : IdentityRole<long>
 {
-    public long Id { get; set; }
-    public string Name { get; set; }
-    public string NormalizedName { get; set; }
 }
