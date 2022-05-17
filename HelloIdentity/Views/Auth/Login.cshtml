@@ -1,0 +1,12 @@
+﻿@using HelloIdentity.Identity.Models
+@model SignInModel
+
+<form asp-action="Login" style="display: flex; flex-direction: column">
+    <input type="hidden" asp-for="RedirectUrl" />
+    <input asp-for="UserName" />
+    <span asp-validation-for="UserName"></span>
+    <input type="password" asp-for="Password" />
+    <span asp-validation-for="Password"></span>
+
+    <button>Log in!</button>
+</form>
