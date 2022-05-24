@@ -43,6 +43,7 @@ builder.Services.AddIdentity<User, Role>()
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Auth/Login";
+    options.AccessDeniedPath = "/Auth/Forbidden";
 });
 
 var app = builder.Build();

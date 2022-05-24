@@ -56,6 +56,8 @@ public class AuthController : Controller
         return Redirect("/");
     }
 
+    public IActionResult Forbidden() => View();
+
     public IActionResult Register() => View();
 
     [HttpPost, AutoValidateAntiforgeryToken]
